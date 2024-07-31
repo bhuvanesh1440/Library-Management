@@ -7,6 +7,8 @@ const userAuth = async(req,res,next)=>{
     try 
     {
         const token = req.header('token');
+        // console.log(token); //testing
+
         const decoded = jwt.verify(token,process.env.JWT_LOGIN_KEY)
         if(!decoded.userId || !decoded.userEmail)
         {
